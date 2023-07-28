@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="keywords" content="Causha" />
+<meta name="description" content="Causha" />  
+
+<title>Demo - Bootstrap 5 sidebar vertical menu sample. html code example </title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+<style type="text/css">
+
+
+/* ============ desktop view ============ */
+@media all and (min-width: 992px) {
+
+	.sidebar li{ position: relative; }
+
+	.sidebar li .submenu{ 
+		display: none;
+		position: absolute;
+		left:100%; top:-7px;
+		min-width: 240px;
+	}
+
+	[dir=rtl] .sidebar li .submenu{ 
+		right:100%; left:auto;
+	}
+
+	.sidebar li:hover{ background: var(--bs-light); }
+	.sidebar li:hover > .submenu{ display: block; }
+
+}	
+/* ============ desktop view .end// ============ */
+
+
+/* ============ small devices ============ */
+@media (max-width: 991px) {
+
+	.sidebar .submenu, .sidebar .dropdown-menu{
+		position: static!important;
+		margin-left:0.7rem; margin-right:0.7rem; margin-bottom: .5rem;
+	}
+
+}	
+/* ============ small devices .end// ============ */
+
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: var(--bs-dark);
+}
+.sidebar .nav-link:hover {
+    background: var(--bs-light);
+    color: var(--bs-primary);
+}
+
+</style>
+
+
+
+<script type="text/javascript">
+	window.addEventListener("resize", function() {
+		"use strict"; window.location.reload(); 
+	});
+
+	document.addEventListener("DOMContentLoaded", function(){
+		 // make it as accordion for smaller screens
+		if (window.innerWidth < 992) {
+
+			document.querySelectorAll('.sidebar .nav-link').forEach(function(element){
+				
+				element.addEventListener('click', function (e) {
+
+				  	let nextEl = element.nextElementSibling;
+				  	let parentEl  = element.parentElement;
+				  	let allSubmenus_array =	parentEl.querySelectorAll('.submenu');
+
+				  	if(nextEl && nextEl.classList.contains('submenu')) {	
+				  		e.preventDefault();	
+				  		if(nextEl.style.display == 'block'){
+				  			nextEl.style.display = 'none';
+
+				  		} else {
+				  			nextEl.style.display = 'block';
+				  		}
+
+				  	}
+				});
+			})
+		}
+		// end if innerWidth
+
+	}); 
+	// DOMContentLoaded  end
+</script>
+
+</head>
+<body class="bg-light">
+
+<header class="section-header py-3">
+<div class="container">
+	<h2>Demo page </h2> 
+</div>
+</header> <!-- section-header.// -->
+
+<div class="container">
+
+<section class="section-content py-3">
+	<div class="row">
+		<aside class="col-lg-3"> 
+<!-- ============= COMPONENT ============== -->
+<nav class="sidebar card py-2 mb-4">
+<ul class="nav flex-column">
+	<li class="nav-item">
+		<a class="nav-link" href="#"> Link name </a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="#"> Submenu links <b class="float-end">&raquo;</b> </a>
+		<ul class="submenu dropdown-menu">
+			<li><a class="nav-link" href="#">Submenu item 1 </a></li>
+		    <li><a class="nav-link" href="#">Submenu item 2 </a></li>
+		    <li><a class="nav-link" href="#">Submenu item 3 </a>
+		    </li>
+		</ul>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="#"> Treeview category <b class="float-end">&raquo;</b> </a>
+		<ul class="submenu dropdown-menu">
+			<li><a class="nav-link" href="#">Submenu item 1 </a></li>
+		    <li><a class="nav-link" href="#">Submenu item 2 </a></li>
+		    <li><a class="nav-link" href="#">Submenu item 3 <b class="float-end">&raquo;</b> </a>
+		    	<ul class="submenu dropdown-menu">
+				    <li><a class="nav-link" href="#">Multi level 1 <b class="float-end">&raquo;</b></a>
+						<ul class="submenu dropdown-menu">
+							<li><a class="nav-link" href="#">Multi level Vips 1</a></li>
+							<li><a class="nav-link" href="#">Multi level Vips 1</a></li>
+						</ul>
+					
+					</li>
+				    <li><a class="nav-link" href="#">Multi level 2</a></li>
+				    <li><a class="nav-link" href="#">Multi level 3</a></li>
+				</ul>
+		    </li>
+		</ul>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="#"> Another page </a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="#"> Demo link </a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="#"> Menu item </a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="#"> Something </a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="#"> Other link </a>
+	</li>
+</ul>
+</nav>
+<!-- ============= COMPONENT END// ============== -->	
+		</aside>
+		
+	</div>
+</section>
+
+</div><!-- container //  -->
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
